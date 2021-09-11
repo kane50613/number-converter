@@ -6,12 +6,14 @@ for(let num of numbers) {
         h2 = document.createElement('h2'),
         input = document.createElement('input')
 
+    const prefix = num[3] ?? ''
+
     div.classList.add('container')
     div.classList.add('col')
     h2.classList.add('title')
     h2.innerText = num[0]
     input.id = num[1]
-    input.value = num[3] ?? ''
+    input.value = `${prefix}0`
 
     div.appendChild(h2)
     div.appendChild(input)
@@ -20,8 +22,12 @@ for(let num of numbers) {
     const selector = $(num[1])
 
     selector.addEventListener('input', () => {
-        if(num[3] && selector.value.slice(num[3].length).length <= 0)
-            return selector.value = num[3]
+        if(selector.value.length === 0)
+            selector.value = `${prefix}0`
+        else if(/^0+/.test(selector.value.slice(prefix.length)))
+            selector.value = `${prefix}${selector.value.slice(prefix.length).replace(/^0+/, '')}`
+        if(num[3] && selector.value.slice(prefix.length).length <= 0)
+            return selector.value = `${prefix}0`
 
         for(let to_change of numbers) {
             if(num === to_change)
@@ -38,7 +44,7 @@ for(let num of numbers) {
             }
 
             $(to_change[1]).value = (to_change[3] ?? '') +
-                (value.length === 0 ? '' : target.toString(to_change[2])).toUpperCase()
+                (value.length === 0 ? '0' : target.toString(to_change[2])).toUpperCase()
         }
     })
 }

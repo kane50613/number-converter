@@ -28,9 +28,9 @@ body {
 }
 
 hr {
-    width: 90%;
+    width: 100%;
     opacity: .5;
-    margin: 7.5rem 0;
+    margin: 7rem 0 1rem;
 }
 
 .title {
@@ -132,6 +132,11 @@ a {
     font-size: larger;
 }
 
+.content > ul > li {
+    margin: .5rem 0;
+    line-height: 1.5rem;
+}
+
 @media (max-width: 1000px) {
     body {
         padding: 0 10%;
@@ -161,8 +166,7 @@ a {
     }
 
     hr {
-        width: 100%;
-        margin: 3rem 0;
+        margin: 5rem 0 .5rem;
     }
 }
 

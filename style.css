@@ -115,6 +115,7 @@ a {
 
 .content {
     padding-bottom: 3rem;
+    width: 100%;
 }
 
 .content > h2 {
@@ -128,7 +129,7 @@ a {
 .content > a,
 .content > ul > li {
     color: #d2d2d2;
-    margin: .5rem;
+    margin: .5rem 0;
     font-size: larger;
 }
 

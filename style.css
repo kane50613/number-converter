@@ -13,6 +13,7 @@
 }
 
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0 15%;
     height: 100%;
@@ -183,6 +184,7 @@ p,
         flex-direction: column;
         row-gap: 1.5rem;
         column-gap: 2rem;
+        padding: 0;
     }
 
     .container {

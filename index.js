@@ -1,22 +1,31 @@
 const $ = mdui.$
-
-const numbers = [["dec", 10], ["hex", 16], ["bin", 2], ["oct", 8]]
-
-$("#dec").get(0).addEventListener('input', () => {
-    $("#hex").get(0).value = Number($("#dec").get(0).value).toString(2)
-})
+const numbers = [["十進位", "dec", 10], ["十六進位", "hex", 16], ["二進位", "bin", 2], ["八進位", "oct", 8]]
 
 for(let num of numbers) {
-    $(`#${num[0]}`).get(0).addEventListener('input', () => {
+    let div = document.createElement('div'),
+        h2 = document.createElement('h2'),
+        input = document.createElement('input')
+
+    div.classList.add('container')
+    div.classList.add('col')
+    h2.classList.add('title')
+    h2.innerText = num[0]
+    input.id = num[1]
+
+    div.appendChild(h2)
+    div.appendChild(input)
+    $(`#containers`).get(0).appendChild(div)
+
+    document.getElementById(num[1]).addEventListener('input', () => {
         for(let to_change of numbers) {
             if(num === to_change)
                 continue
 
-            const value = $(`#${num[0]}`).get(0).value
-            const target = parseFloat(value, num[1])
+            const value = $(`#${num[1]}`).get(0).value
+            const target = parseFloat(value, num[2])
 
-            $(`#${to_change[0]}`).get(0).value = value.length === 0 ? '' :
-                (isNaN(target) || !isFinite(target) ? '錯誤' : target.toString(to_change[1])).toUpperCase()
+            $(`#${to_change[1]}`).get(0).value = value.length === 0 ? '' :
+                (isNaN(target) || !isFinite(target) ? '錯誤' : target.toString(to_change[2])).toUpperCase()
         }
     })
 }

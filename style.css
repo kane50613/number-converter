@@ -1,16 +1,36 @@
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: rgb(70, 70, 70);
+}
+
 body {
     margin: 0;
-    padding: 0 4rem;
+    padding: 0 15%;
     height: 100%;
     font-family: "JetBrains-Mono", sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     -webkit-font-smoothing: antialiased;
     -webkit-text-rendering: optimizeLegibility;
     -webkit-font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+hr {
+    width: 90%;
+    opacity: .5;
+    margin: 7.5rem 0;
 }
 
 .title {
@@ -26,10 +46,13 @@ body {
 }
 
 .title.big {
-    font-size: 2.25rem;
+    padding: 1.5rem 1rem;
+    font-size: 2.5rem;
 }
 
 main {
+    width: 100%;
+    padding: 0 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
@@ -82,12 +105,65 @@ input:focus {
     opacity: .75;
 }
 
-.license > a {
+a {
     color: white;
     text-decoration: underline;
     text-decoration-color: #22d5ff;
     text-underline-offset: 1px;
     text-decoration-thickness: 2px;
+}
+
+.content {
+    padding-bottom: 3rem;
+}
+
+.content > h2 {
+    font-size: 2rem;
+    width: fit-content;
+    border-bottom: 3px solid #0090ff;
+    color: #d2d2d2;
+}
+
+.content > p,
+.content > a,
+.content > ul > li {
+    color: #d2d2d2;
+    margin: .5rem;
+    font-size: larger;
+}
+
+@media (max-width: 1000px) {
+    body {
+        padding: 0 10%;
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 740px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+        column-gap: 2rem;
+    }
+
+    .container {
+        padding: .5rem;
+    }
+
+    input {
+        font-size: 1.25rem;
+    }
+
+    hr {
+        width: 100%;
+        margin: 3rem 0;
+    }
 }
 
 @font-face {

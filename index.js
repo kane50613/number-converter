@@ -32,8 +32,13 @@ for(let num of numbers) {
                  value = value.slice(num[3].length)
             let target = parseFloat(value, num[2])
 
-            $(`#${to_change[1]}`).get(0).value = (to_change[3] ?? '') + (value.length === 0 ? '' :
-                (isNaN(target) || !isFinite(target) ? '錯誤' : target.toString(to_change[2]))).toUpperCase()
+            if((isNaN(target) || !isFinite(target)) && value.length !== 0) {
+                $(`#${to_change[1]}`).get(0).value = '錯誤'
+                continue
+            }
+
+            $(`#${to_change[1]}`).get(0).value = (to_change[3] ?? '') +
+                (value.length === 0 ? '' : target.toString(to_change[2])).toUpperCase()
         }
     })
 }

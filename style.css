@@ -148,6 +148,10 @@ a {
     color: #d2d2d2;
 }
 
+.content > h2 > strong {
+    color: #22d5ff;
+}
+
 p,
 .content > a,
 .content > ul > li {

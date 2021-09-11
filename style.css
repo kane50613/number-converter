@@ -12,12 +12,16 @@
     background: rgb(70, 70, 70);
 }
 
+* {
+    font-family: "JetBrains-Mono", sans-serif;
+}
+
 body {
+    background-color: #212121;
     overflow-x: hidden;
     margin: 0;
     padding: 0 15%;
     height: 100%;
-    font-family: "JetBrains-Mono", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -126,7 +130,7 @@ input:focus {
     bottom: 1rem;
     right: 2rem;
     font-size: 1rem;
-    opacity: .75;
+    color: #d2d2d2;
 }
 
 a {

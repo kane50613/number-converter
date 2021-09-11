@@ -1,4 +1,4 @@
-const $ = mdui.$
+const $ = (id) => document.getElementById(id)
 const numbers = [["十進位", "dec", 10], ["十六進位", "hex", 16, "0x"], ["二進位", "bin", 2, "0b"], ["八進位", "oct", 8]]
 
 for(let num of numbers) {
@@ -15,9 +15,9 @@ for(let num of numbers) {
 
     div.appendChild(h2)
     div.appendChild(input)
-    $(`#containers`).get(0).appendChild(div)
+    $('containers').appendChild(div)
 
-    const selector = $(`#${num[1]}`).get(0)
+    const selector = $(num[1])
 
     selector.addEventListener('input', () => {
         if(num[3] && selector.value.slice(num[3].length).length <= 0)
@@ -33,11 +33,11 @@ for(let num of numbers) {
             let target = parseFloat(value, num[2])
 
             if((isNaN(target) || !isFinite(target)) && value.length !== 0) {
-                $(`#${to_change[1]}`).get(0).value = '錯誤'
+                $(to_change[1]).value = '錯誤'
                 continue
             }
 
-            $(`#${to_change[1]}`).get(0).value = (to_change[3] ?? '') +
+            $(to_change[1]).value = (to_change[3] ?? '') +
                 (value.length === 0 ? '' : target.toString(to_change[2])).toUpperCase()
         }
     })

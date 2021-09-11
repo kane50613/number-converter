@@ -27,6 +27,12 @@ body {
     -webkit-font-feature-settings: "liga" 1, "dlig" 1;
 }
 
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 hr {
     width: 100%;
     opacity: .5;
@@ -48,6 +54,23 @@ hr {
 .title.big {
     padding: 1.5rem 1rem;
     font-size: 2.5rem;
+}
+
+.title--image {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
+}
+
+.title--container {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.title--container > h1 {
+    margin: 0 !important;
+    padding: 0 0!important;
 }
 
 main {
@@ -125,11 +148,11 @@ a {
     color: #d2d2d2;
 }
 
-.content > p,
+p,
 .content > a,
 .content > ul > li {
     color: #d2d2d2;
-    margin: .5rem 0;
+    margin: .75rem 0;
     font-size: larger;
 }
 

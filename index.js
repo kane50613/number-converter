@@ -16,7 +16,7 @@ for(let num of numbers) {
             const target = parseFloat(value, num[1])
 
             $(`#${to_change[0]}`).get(0).value = value.length === 0 ? '' :
-                (isNaN(target) || !isFinite(target) ? '錯誤' : target.toString(to_change[1]))
+                (isNaN(target) || !isFinite(target) ? '錯誤' : target.toString(to_change[1])).toUpperCase()
         }
     })
 }

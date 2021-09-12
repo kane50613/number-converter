@@ -50,6 +50,14 @@ for(let num of numbers) {
                 (value.length === 0 ? '0' : target.toString(to_change[2])).toUpperCase()
         }
     })
+
+    if(!num[3])
+        continue
+
+    selector.addEventListener('select', () => {
+        if(selector.selectionStart < num[3].length && selector.value.startsWith(num[3]))
+            selector.setSelectionRange(num[3].length, selector.selectionEnd)
+    })
 }
 
 // https://stackoverflow.com/questions/5055723/converting-hexadecimal-to-float-in-javascript
@@ -93,12 +101,20 @@ if(!!navigator?.serviceWorker) {
         })
 }
 
+window.addEventListener('appinstalled', () => {
+    Swal.fire({
+        title: '恭喜你成功安裝離線版App!',
+        text: '之後可以更方便的使用計算機拉',
+        icon: 'success'
+    })
+})
+
 if(!localStorage.getItem('denyInstall')) {
     window.addEventListener('beforeinstallprompt', async (e) => {
         e.preventDefault()
 
         let result = await Swal.fire({
-            title: '要不要安裝到桌面方便使用?',
+            title: '要不要安裝離線版App方便使用?',
             icon: 'question',
             showDenyButton: true,
             showCancelButton: true,

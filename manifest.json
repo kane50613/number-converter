@@ -2,7 +2,7 @@
   "short_name": "進位計算機",
   "name": "進位計算機",
   "icons": [{
-    "src":"favicon.png",
+    "src":"/favicon.png",
     "sizes": "128x128",
     "type": "image/png"
   }],

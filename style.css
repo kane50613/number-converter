@@ -13,6 +13,7 @@
 }
 
 * {
+    word-break: break-word;
     font-family: "JetBrains-Mono", sans-serif;
 }
 
@@ -44,12 +45,21 @@ hr {
     margin: 7rem 0 1rem;
 }
 
+ul {
+    padding: 0 1.5rem;
+}
+
 .title {
     white-space: nowrap;
     color: #ffffff;
     display: block;
     padding: 0 1rem;
     font-weight: bold;
+}
+
+.title.clear {
+    padding: 0 !important;
+    margin: 1rem 0 !important;
 }
 
 .title.dark {
@@ -186,21 +196,59 @@ p,
     main {
         display: flex;
         flex-direction: column;
-        row-gap: 1.5rem;
-        column-gap: 2rem;
+        row-gap: 1rem;
         padding: 0;
     }
 
     .container {
-        padding: .5rem;
+        padding: 0 .5rem;
     }
 
     input {
         font-size: 1.25rem;
+        margin-left: .5rem;
+        margin-bottom: 1rem;
+        width: calc(100% - 1rem);
     }
 
     hr {
         margin: 5rem 0 .5rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+        padding: 0 .5rem;
+        margin: .75rem 0;
+    }
+
+    .title.big {
+        font-size: 2rem;
+    }
+
+    .title--image {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    p,
+    .content > a,
+    .content > ul > li {
+        font-size: medium;
+    }
+}
+
+@media (max-width: 240px) {
+    .title.big {
+        font-size: 10vw;
+    }
+
+    .title {
+        font-size: 7vw;
+    }
+
+    .title--image {
+        width: 10vw;
+        height: 10vw;
     }
 }
 

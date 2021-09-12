@@ -57,3 +57,36 @@ function parseFloat(str, radix)
         return parseInt(parts[0], radix) + parseInt(parts[1], radix) / Math.pow(radix, parts[1].length)
     return parseInt(parts[0], radix)
 }
+
+// install check
+if(!!navigator?.serviceWorker) {
+    const channel4Broadcast = new BroadcastChannel('channel4')
+
+    channel4Broadcast.onmessage = (e) => {
+        switch (e.data.type) {
+            case "install":
+                Swal.fire({
+                    toast: true,
+                    title: '感謝你的使用',
+                    text: '可以離線使用本App了!',
+                    timer: 7000,
+                    position: 'bottom',
+                    showConfirmButton: false,
+                    timerProgressBar: true,
+                    icon: 'success',
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+        }
+    }
+
+    navigator.serviceWorker.register('worker.js')
+        .then(worker => {
+            if(worker.active)
+                worker.active.addEventListener('message', (message) => {
+                    console.log(message)
+                })
+        })
+}

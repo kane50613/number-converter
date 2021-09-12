@@ -6,8 +6,9 @@
     "sizes": "128x128",
     "type": "image/png"
   }],
-  "start_url": "https://calc.iskane.me/",
+  "start_url": "./?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa",
   "background_color": "#212121",
   "theme_color": "#0090ff",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait-primary"
 }

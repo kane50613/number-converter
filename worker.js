@@ -8,7 +8,7 @@ const assets = [
     '/favicon_192.png',
     '/favicon_512.png',
     '/index.js',
-    '/index.css',
+    '/style.css',
     '/JetBrainsMono.ttf',
     '/JetBrainsMono-Regular.woff2'
 ]

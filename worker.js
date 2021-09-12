@@ -3,10 +3,11 @@ const autoCacheFile = 'letswrite-v1.0.0'
 
 const assets = [
     '/?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa',
-    '/favicon.ico',
-    '/favicon.png',
-    '/favicon_192.png',
-    '/favicon_512.png',
+    '/img/favicon.ico',
+    '/img/favicon.png',
+    '/img/favicon_192.png',
+    '/img/favicon_512.png',
+    '/img/favicon_512_maskable.png',
     '/index.js',
     '/style.css',
     '/JetBrainsMono.ttf',

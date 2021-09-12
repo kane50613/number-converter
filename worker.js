@@ -5,6 +5,8 @@ const assets = [
     '/?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa',
     '/favicon.ico',
     '/favicon.png',
+    '/favicon_192.png',
+    '/favicon_512.png',
     '/index.js',
     '/index.css',
     '/JetBrainsMono.ttf',

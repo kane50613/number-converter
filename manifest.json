@@ -1,14 +1,26 @@
 {
-  "short_name": "進位計算機",
-  "name": "進位計算機",
-  "icons": [{
-    "src":"/favicon.png",
-    "sizes": "128x128",
-    "type": "image/png"
-  }],
-  "start_url": "./?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa",
-  "background_color": "#212121",
-  "theme_color": "#0090ff",
-  "display": "standalone",
-  "orientation": "portrait-primary"
+	"short_name": "進位計算機",
+	"name": "進位計算機",
+	"icons": [
+		{
+			"src": "/favicon.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicon_192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/favicon_512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"start_url": "./?utm_source=PWA&utm_medium=home_screen&utm_campaign=pwa",
+	"background_color": "#212121",
+	"theme_color": "#0090ff",
+	"display": "standalone",
+	"orientation": "portrait-primary"
 }

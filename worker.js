@@ -29,6 +29,7 @@ self.addEventListener('install', (e) => {
     e.waitUntil(
         caches.open(preCacheFile).then(cache => {
             cache.addAll(assets)
+                .catch(console.error)
         })
     )
 

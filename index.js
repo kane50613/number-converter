@@ -14,6 +14,9 @@ for(let num of numbers) {
     h2.innerText = num[0]
     input.id = num[1]
     input.value = `${prefix}0`
+    input.autocomplete = 'off'
+    input.autocapitalize = 'off'
+    input.spellcheck = false
 
     div.appendChild(h2)
     div.appendChild(input)

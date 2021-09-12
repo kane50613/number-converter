@@ -99,19 +99,29 @@ if(!localStorage.getItem('denyInstall')) {
 
         let result = await Swal.fire({
             title: '要不要安裝到桌面方便使用?',
-            icon: 'success',
+            icon: 'question',
             showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: '好!',
             confirmButtonColor: '#00D100',
             denyButtonText: '不要再問我',
-            cancelButtonText: '下次再詢問我'
+            cancelButtonText: '下次再說'
         })
 
-        if(result.isDenied)
-            return localStorage.setItem('denyInstall', 'true')
+        if(result.isDenied) {
+            let secondConfirm = await Swal.fire({
+                title: '你確定不要安裝嘛',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: '我要!',
+                confirmButtonColor: '#00D100',
+                cancelButtonText: '不要'
+            })
 
-        if(result.isConfirmed)
-            e.prompt()
+            if(!secondConfirm.isConfirmed)
+                return localStorage.setItem('denyInstall', 'true')
+        }
+
+        e.prompt()
     })
 }

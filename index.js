@@ -70,8 +70,7 @@ if(!!navigator?.serviceWorker) {
             case "install":
                 Swal.fire({
                     toast: true,
-                    title: '感謝你的使用',
-                    text: '可以離線使用本App了!',
+                    title: '網頁可以離線使用了!',
                     timer: 7000,
                     position: 'bottom',
                     showConfirmButton: false,
@@ -92,4 +91,27 @@ if(!!navigator?.serviceWorker) {
                     console.log(message)
                 })
         })
+}
+
+if(!localStorage.getItem('denyInstall')) {
+    window.addEventListener('beforeinstallprompt', async (e) => {
+        e.preventDefault()
+
+        let result = await Swal.fire({
+            title: '要不要安裝到桌面方便使用?',
+            icon: 'success',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: '好!',
+            confirmButtonColor: '#00D100',
+            denyButtonText: '不要再問我',
+            cancelButtonText: '下次再詢問我'
+        })
+
+        if(result.isDenied)
+            return localStorage.setItem('denyInstall', 'true')
+
+        if(result.isConfirmed)
+            e.prompt()
+    })
 }

@@ -184,12 +184,14 @@ p,
 @media (max-width: 1000px) {
     body {
         padding: 0 10%;
+        width: 80%;
     }
 }
 
 @media (max-width: 800px) {
     body {
         padding: 0 5%;
+        width: 90%;
     }
 }
 

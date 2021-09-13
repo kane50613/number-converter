@@ -204,18 +204,6 @@ p,
     margin: 0;
 }
 
-.social.facebook {
-    background-color: #4267B2;
-}
-
-.social.messenger {
-    background-color: #006AFF;
-}
-
-.social.email {
-    background-color: dimgray;
-}
-
 @media (max-width: 1000px) {
     body {
         padding: 0 10%;

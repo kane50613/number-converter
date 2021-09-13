@@ -10,9 +10,9 @@ const url = "https://calc.iskane.me"
 const content = encodeURIComponent('線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位')
 
 const socials = [
-    ["facebook", `https://www.facebook.com/sharer/sharer.php?t=${content}&u=${encodeURIComponent(`${url}/?utm_source=facebook&utm_medium=social&utm_campaign=promote`)}`],
-    ["messenger", `https://www.facebook.com/dialog/send?link=${encodeURIComponent(`${url}/?utm_source=messenger&utm_medium=social&utm_campaign=promote`)}&app_id=291494419107518&redirect_uri=${encodeURIComponent(url)}`],
-    ["email", `mailto:?subject=線上進位計算機&body=線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位\nhttps://calc.iskane.me/`]
+    ["facebook", "#4267B2", `https://www.facebook.com/sharer/sharer.php?t=${content}&u=${encodeURIComponent(`${url}/?utm_source=facebook&utm_medium=social&utm_campaign=promote`)}`],
+    ["messenger", "#006AFF", `https://www.facebook.com/dialog/send?link=${encodeURIComponent(`${url}/?utm_source=messenger&utm_medium=social&utm_campaign=promote`)}&app_id=291494419107518&redirect_uri=${encodeURIComponent(url)}`],
+    ["email", "dimgray", `mailto:?subject=線上進位計算機&body=線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位\nhttps://calc.iskane.me/`],
 ]
 
 for(let num of numbers) {
@@ -79,26 +79,50 @@ for(let num of numbers) {
 // https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
 for(let soc of socials) {
-    let div = document.createElement('div'),
-        img = document.createElement('img')
+    let {button, image} = buildShareButton(soc[0], soc[1])
 
-    div.classList.add('social')
-    div.classList.add(soc[0])
-    img.classList.add('icon')
-    img.src = `/img/social/${soc[0]}.svg`
-    img.alt = `分享到 ${capitalize(soc[0])}`
-    img.title = img.alt
-
-    div.addEventListener('click', () => {
+    button.addEventListener('click', () => {
         window.open(
-            soc[1],
-            img.alt,
+            soc[2],
+            image.alt,
             'width=800,height=600'
         )
     })
 
+    $('social').appendChild(button)
+}
+
+if(!!navigator.share) {
+    let {button, image} = buildShareButton('share', '#33AAFF')
+
+    button.addEventListener('click', () => {
+        navigator.share({
+            title: '進位計算機', url
+        }).catch((e) => {
+            Swal.fire({
+                title: '分享時發生了錯誤 :(',
+                icon: 'error',
+                text: e.message
+            })
+        })
+    })
+}
+
+function buildShareButton(name, color) {
+    let div = document.createElement('div'),
+        img = document.createElement('img')
+
+    div.classList.add('social')
+    div.classList.add(name)
+    img.classList.add('icon')
+    div.style.backgroundColor = color
+    img.src = `/img/social/${name}.svg`
+    img.alt = `透過 ${capitalize(name)} 分享`
+    img.title = img.alt
+
     div.appendChild(img)
-    $('social').appendChild(div)
+
+    return {button: div, image: img}
 }
 
 // https://stackoverflow.com/questions/5055723/converting-hexadecimal-to-float-in-javascript

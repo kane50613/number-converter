@@ -93,7 +93,7 @@ for(let soc of socials) {
 }
 
 if(!!navigator.share) {
-    let {button, image} = buildShareButton('share', '#33AAFF')
+    let {button, image} = buildShareButton('share', '#474fff')
 
     button.addEventListener('click', () => {
         navigator.share({
@@ -106,6 +106,8 @@ if(!!navigator.share) {
             })
         })
     })
+
+    $('social').appendChild(button)
 }
 
 function buildShareButton(name, color) {

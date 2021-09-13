@@ -98,13 +98,7 @@ if(!!navigator.share) {
     button.addEventListener('click', () => {
         navigator.share({
             title: '進位計算機', url
-        }).catch((e) => {
-            Swal.fire({
-                title: '分享時發生了錯誤 :(',
-                icon: 'error',
-                text: e.message
-            })
-        })
+        }).catch(() => {})
     })
 
     $('social').appendChild(button)

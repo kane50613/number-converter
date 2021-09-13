@@ -63,6 +63,8 @@ for(let num of numbers) {
 // https://stackoverflow.com/questions/5055723/converting-hexadecimal-to-float-in-javascript
 function parseFloat(str, radix)
 {
+    if(!str)
+        return 0
     const parts = str.split(".")
     if (parts.length > 1)
         return parseInt(parts[0], radix) + parseInt(parts[1], radix) / Math.pow(radix, parts[1].length)

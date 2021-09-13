@@ -124,6 +124,9 @@ if(!localStorage.getItem('denyInstall')) {
             cancelButtonText: '下次再說'
         })
 
+        if(result.isDismissed)
+            return
+
         if(result.isDenied) {
             let secondConfirm = await Swal.fire({
                 title: '你確定不要安裝嘛',

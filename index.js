@@ -1,5 +1,19 @@
 const $ = (id) => document.getElementById(id)
-const numbers = [["十進位", "dec", 10], ["十六進位", "hex", 16, "0x"], ["二進位", "bin", 2, "0b"], ["八進位", "oct", 8]]
+const numbers = [
+    ["十進位", "dec", 10],
+    ["十六進位", "hex", 16, "0x"],
+    ["二進位", "bin", 2, "0b"],
+    ["八進位", "oct", 8]
+]
+
+const url = "https://calc.iskane.me"
+const content = encodeURIComponent('線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位')
+
+const socials = [
+    ["facebook", `https://www.facebook.com/sharer/sharer.php?t=${content}&u=${encodeURIComponent(`${url}/?utm_source=facebook&utm_medium=social&utm_campaign=promote`)}`],
+    ["messenger", `https://www.facebook.com/dialog/send?link=${encodeURIComponent(`${url}/?utm_source=messenger&utm_medium=social&utm_campaign=promote`)}&app_id=291494419107518&redirect_uri=${encodeURIComponent(url)}`],
+    ["email", `mailto:?subject=線上進位計算機&body=線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位\nhttps://calc.iskane.me/`]
+]
 
 for(let num of numbers) {
     let div = document.createElement('div'),
@@ -24,9 +38,11 @@ for(let num of numbers) {
 
     const selector = $(num[1])
 
-    selector.addEventListener('input', () => {
-        if(selector.value.length === 0)
-            selector.value = `${prefix}0`
+    selector.addEventListener('input', (e) => {
+        if(selector.value.length === 0) {
+            e.preventDefault()
+            return selector.value = `${prefix}0`
+        }
         else if(/^0+/.test(selector.value.slice(prefix.length)))
             selector.value = `${prefix}${selector.value.slice(prefix.length).replace(/^0+/, '')}`
         if(num[3] && selector.value.slice(prefix.length).length <= 0)
@@ -60,6 +76,31 @@ for(let num of numbers) {
     })
 }
 
+// https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+for(let soc of socials) {
+    let div = document.createElement('div'),
+        img = document.createElement('img')
+
+    div.classList.add('social')
+    div.classList.add(soc[0])
+    img.classList.add('icon')
+    img.src = `/img/social/${soc[0]}.svg`
+    img.alt = `分享到 ${capitalize(soc[0])}`
+    img.title = img.alt
+
+    div.addEventListener('click', () => {
+        window.open(
+            soc[1],
+            img.alt,
+            'width=800,height=600'
+        )
+    })
+
+    div.appendChild(img)
+    $('social').appendChild(div)
+}
+
 // https://stackoverflow.com/questions/5055723/converting-hexadecimal-to-float-in-javascript
 function parseFloat(str, radix)
 {
@@ -70,6 +111,7 @@ function parseFloat(str, radix)
         return parseInt(parts[0], radix) + parseInt(parts[1], radix) / Math.pow(radix, parts[1].length)
     return parseInt(parts[0], radix)
 }
+
 
 // install check
 if(!!navigator?.serviceWorker) {

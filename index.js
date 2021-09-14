@@ -39,14 +39,12 @@ for(let num of numbers) {
     const selector = $(num[1])
 
     selector.addEventListener('input', (e) => {
-        if(selector.value.length === 0) {
+        if(selector.value.length === 0 || /^0+$/.test(selector.value.slice(prefix.length)) || (num[3] && selector.value.slice(prefix.length).length <= 0)) {
             e.preventDefault()
-            return selector.value = `${prefix}0`
+            selector.value = `${prefix}0`
         }
-        else if(/^0+/.test(selector.value.slice(prefix.length)))
+        if(/^0+/.test(selector.value.slice(prefix.length)) && !selector.value.endsWith('0'))
             selector.value = `${prefix}${selector.value.slice(prefix.length).replace(/^0+/, '')}`
-        if(num[3] && selector.value.slice(prefix.length).length <= 0)
-            return selector.value = `${prefix}0`
 
         for(let to_change of numbers) {
             if(num === to_change)

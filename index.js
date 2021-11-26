@@ -1,9 +1,9 @@
 const $ = (id) => document.getElementById(id)
 const numbers = [
-    ["十進位", "dec", 10],
-    ["十六進位", "hex", 16, "0x"],
-    ["二進位", "bin", 2, "0b"],
-    ["八進位", "oct", 8]
+    ["十進位 (Dec)", "dec", 10],
+    ["十六進位 (Hex)", "hex", 16, "0x"],
+    ["二進位 (Bin)", "bin", 2, "0b"],
+    ["八進位 (Oct)", "oct", 8]
 ]
 
 const url = "https://calc.iskane.me"
@@ -16,26 +16,7 @@ const socials = [
 ]
 
 for(let num of numbers) {
-    let div = document.createElement('div'),
-        h2 = document.createElement('h2'),
-        input = document.createElement('input')
-
     const prefix = num[3] ?? ''
-
-    div.classList.add('container')
-    div.classList.add('col')
-    h2.classList.add('title')
-    h2.innerText = num[0]
-    input.id = num[1]
-    input.value = `${prefix}0`
-    input.autocomplete = 'off'
-    input.autocapitalize = 'off'
-    input.spellcheck = false
-
-    div.appendChild(h2)
-    div.appendChild(input)
-    $('containers').appendChild(div)
-
     const selector = $(num[1])
 
     selector.addEventListener('input', (e) => {

@@ -9,7 +9,7 @@
     <meta name="theme-color" content="#0090ff">
 
     <meta property="og:title" content="線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位">
-    <meta property="og:description" content="即時將十進位轉換為二進位、八進位轉十六進位、二進位轉十六進位等等進位制">
+    <meta property="og:description" content="即時轉換十進位(Decimal)、十六進位(Hexadecimal)、二進位(Binary)、八進位(Octal)">
     <meta property="og:url" content="https://calc.iskane.me/">
     <meta property="og:image" content="https://calc.iskane.me/img/favicon.png">
     <meta property="og:type" content="website">
@@ -36,7 +36,24 @@
     </div>
     <p>輸入十進位 / 二進位 / 十六進位 / 八進位數字快速轉換</p>
 </header>
-<main id="containers"></main>
+<main id="containers">
+    <div class="container col">
+        <h2 class="title">十進位 (Decimal)</h2>
+        <input id="dec" value="0" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="container col">
+        <h2 class="title">十六進位 (Hexadecimal)</h2>
+        <input id="hex" value="0" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="container col">
+        <h2 class="title">二進位 (Binary)</h2>
+        <input id="bin" value="0" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+    <div class="container col">
+        <h2 class="title">八進位 (Octal)</h2>
+        <input id="oct" value="0" autocomplete="off" autocapitalize="off" spellcheck="false">
+    </div>
+</main>
 <section class="content" id="social"></section>
 <hr>
 <section class="content">

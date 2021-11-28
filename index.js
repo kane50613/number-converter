@@ -7,13 +7,6 @@ const numbers = [
 ]
 
 const url = "https://calc.iskane.me"
-const content = encodeURIComponent('線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位')
-
-const socials = [
-    ["facebook", "#4267B2", `https://www.facebook.com/sharer/sharer.php?t=${content}&u=${encodeURIComponent(`${url}/?utm_source=facebook&utm_medium=social&utm_campaign=promote`)}`],
-    ["messenger", "#006AFF", `https://www.facebook.com/dialog/send?link=${encodeURIComponent(`${url}/?utm_source=messenger&utm_medium=social&utm_campaign=promote`)}&app_id=291494419107518&redirect_uri=${encodeURIComponent(url)}`],
-    ["email", "dimgray", `mailto:?subject=線上進位計算機&body=線上進位計算機 - 即時十進位轉二進位、八進位轉十六進位、二進位轉十六進位\nhttps://calc.iskane.me/`],
-]
 
 for(let num of numbers) {
     const prefix = num[3] ?? ''
